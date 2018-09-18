@@ -73,23 +73,23 @@
       } else if (1000 * 60 <= diff && 1000 * 60 * 60 > diff) {
         tm = int(diff / (1000 * 60));
         enl = tm > 1 ? "mins ago" : "min ago";
-        ago = language === 'cn' ? int(diff / (1000 * 60)) + "分钟前" : int(diff / (1000 * 60)) + enl;
+        ago = language === 'cn' ? tm + "分钟前" : tm + enl;
       } else if (1000 * 60 * 60 <= diff && 1000 * 60 * 60 * 24 > diff) {
         tm = int(diff / (1000 * 60 * 60));
         enl = tm > 1 ? "hours ago" : "hour ago"
-        ago = int(diff / (1000 * 60 * 60)) + language === 'cn' ? "小时前" : enl;
+        ago = tm + language === 'cn' ? "小时前" : enl;
       } else if (1000 * 60 * 60 * 24 <= diff && 1000 * 60 * 60 * 24 * 30 > diff) {
         tm = int(diff / (1000 * 60 * 60 * 24));
         enl = tm > 1 ? "days ago" : "day ago"
-        ago = int(diff / (1000 * 60 * 60 * 24)) + language === 'cn' ? "天前" : enl;
+        ago = tm + language === 'cn' ? "天前" : enl;
       } else if (1000 * 60 * 60 * 24 * 30 <= diff && 1000 * 60 * 60 * 24 * 30 * 12 > diff) {
         tm = int(diff / (1000 * 60 * 60 * 24 * 30));
         enl = tm > 1 ? "months ago" : "month ago"
-        ago = int(diff / (1000 * 60 * 60 * 24 * 30)) + language === 'cn' ? "月前" : enl;
+        ago = tm + language === 'cn' ? "月前" : enl;
       } else {
         tm = int(diff / (1000 * 60 * 60 * 24 * 30 * 12));
         enl = tm > 1 ? "years ago" : "year ago"
-        ago = int(diff / (1000 * 60 * 60 * 24 * 30 * 12)) + language === 'cn' ? "年前" : enl;
+        ago = tm + language === 'cn' ? "年前" : enl;
       }
       return ago;
     }
