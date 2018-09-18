@@ -72,23 +72,23 @@
         ago = language === 'cn' ? "刚刚" : 'just now';
       } else if (1000 * 60 <= diff && 1000 * 60 * 60 > diff) {
         tm = int(diff / (1000 * 60));
-        enl = tm > 1 ? "mins ago" : "min ago";
+        enl = tm > 1 ? " mins ago" : " min ago";
         ago = tm + (language === 'cn' ? "分钟前" : enl);
       } else if (1000 * 60 * 60 <= diff && 1000 * 60 * 60 * 24 > diff) {
         tm = int(diff / (1000 * 60 * 60));
-        enl = tm > 1 ? "hours ago" : "hour ago"
+        enl = tm > 1 ? " hours ago" : " hour ago"
         ago = tm + (language === 'cn' ? "小时前" : enl);
       } else if (1000 * 60 * 60 * 24 <= diff && 1000 * 60 * 60 * 24 * 30 > diff) {
         tm = int(diff / (1000 * 60 * 60 * 24));
-        enl = tm > 1 ? "days ago" : "day ago"
+        enl = tm > 1 ? " days ago" : " day ago"
         ago = tm + (language === 'cn' ? "天前" : enl);
       } else if (1000 * 60 * 60 * 24 * 30 <= diff && 1000 * 60 * 60 * 24 * 30 * 12 > diff) {
         tm = int(diff / (1000 * 60 * 60 * 24 * 30));
-        enl = tm > 1 ? "months ago" : "month ago"
+        enl = tm > 1 ? " months ago" : " month ago"
         ago = tm + (language === 'cn' ? "月前" : enl);
       } else {
         tm = int(diff / (1000 * 60 * 60 * 24 * 30 * 12));
-        enl = tm > 1 ? "years ago" : "year ago"
+        enl = tm > 1 ? " years ago" : " year ago"
         ago = tm + (language === 'cn' ? "年前" : enl);
       }
       return ago;
