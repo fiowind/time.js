@@ -61,25 +61,35 @@
       }
       return ret;
     },
-    human: function(time) {
-      var ago, curTime, diff, int;
+    human: function(time, language = 'cn') {
+      var ago, curTime, diff, int, tm, enl;
       time = unify(time);
       int = parseInt;
       curTime = +new Date();
       diff = curTime - time;
       ago = "";
       if (1000 * 60 > diff) {
-        ago = "刚刚";
+        ago = language === 'cn' ? "刚刚" : 'just now';
       } else if (1000 * 60 <= diff && 1000 * 60 * 60 > diff) {
-        ago = int(diff / (1000 * 60)) + "分钟前";
+        tm = int(diff / (1000 * 60));
+        enl = tm > 1 ? "mins ago" : "min ago";
+        ago = language === 'cn' ? int(diff / (1000 * 60)) + "分钟前" : int(diff / (1000 * 60)) + enl;
       } else if (1000 * 60 * 60 <= diff && 1000 * 60 * 60 * 24 > diff) {
-        ago = int(diff / (1000 * 60 * 60)) + "小时前";
+        tm = int(diff / (1000 * 60 * 60));
+        enl = tm > 1 ? "hours ago" : "hour ago"
+        ago = int(diff / (1000 * 60 * 60)) + language === 'cn' ? "小时前" : enl;
       } else if (1000 * 60 * 60 * 24 <= diff && 1000 * 60 * 60 * 24 * 30 > diff) {
-        ago = int(diff / (1000 * 60 * 60 * 24)) + "天前";
+        tm = int(diff / (1000 * 60 * 60 * 24));
+        enl = tm > 1 ? "days ago" : "day ago"
+        ago = int(diff / (1000 * 60 * 60 * 24)) + language === 'cn' ? "天前" : enl;
       } else if (1000 * 60 * 60 * 24 * 30 <= diff && 1000 * 60 * 60 * 24 * 30 * 12 > diff) {
-        ago = int(diff / (1000 * 60 * 60 * 24 * 30)) + "月前";
+        tm = int(diff / (1000 * 60 * 60 * 24 * 30));
+        enl = tm > 1 ? "months ago" : "month ago"
+        ago = int(diff / (1000 * 60 * 60 * 24 * 30)) + language === 'cn' ? "月前" : enl;
       } else {
-        ago = int(diff / (1000 * 60 * 60 * 24 * 30 * 12)) + "年前";
+        tm = int(diff / (1000 * 60 * 60 * 24 * 30 * 12));
+        enl = tm > 1 ? "years ago" : "year ago"
+        ago = int(diff / (1000 * 60 * 60 * 24 * 30 * 12)) + language === 'cn' ? "年前" : enl;
       }
       return ago;
     }

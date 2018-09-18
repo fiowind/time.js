@@ -1,5 +1,5 @@
 {
-  "name": "time.js",
+  "name": "bijie@time.js",
   "version": "0.0.1",
   "description": "简单方便的格式化时间戳。",
   "main": "time.js",
@@ -15,7 +15,6 @@
     "time.js",
     "moment.js"
   ],
-  "author": "imbinnng@gmail.com",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/binnng/time.js/issues"
